@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: #eddef0;
+    
+}
+
+#loading {
+    display: none;
+    background-color: #666666;
+    background-image: url("../img/progress_spinner.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10000000;
+}
+
+.navbar .navbar-brand img {
+    height: 40px;
+}
+
+
+.footer {
+    background-color: #333333;
+    font-size: 13px;
+ 
+}
+
+.footer-container {
+    padding: 24px;
+}
+
+.footer-a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.footer-b {
+ 
+    text-align: center;
+}
+
+
+.footer-b a {
+    color: #ffffff;
+}
+
+.footer-copyright {
+    color: #a9a9a9;
+    text-align: center;
+    padding-top: 24px;
+}
+
+
+.container {
+    max-width: 920px;
+    padding: 0px 20px;
+}

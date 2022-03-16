@@ -1,0 +1,141 @@
+.page{
+position: relative;
+width: 1640px;
+height: 1024px;
+    
+background: #A9C1FD;
+}
+.imgg {
+position: absolute;
+left: 41.32%;
+right: 0%;
+top: 23.14%;
+bottom: 17.58%;
+}
+.login-box h3{
+    position: absolute;
+    width: 454px;
+    height: 99.99px;
+    left: 84px;
+    top: 312px;
+        
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 54px;
+    line-height: 81px;
+        
+    color: #1B35BA;
+}
+.login-box p{
+    position: absolute;
+    width: 454px;
+    height: 99.99px;
+    left: 96px;
+    top: 375px;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 23px;
+    line-height: 33px;
+    
+    color: rgba(27, 53, 186, 0.6);
+}
+input[type=text] {
+    position: absolute;
+    
+    width: 290px;
+    height: 45px;
+    left: 96px;
+    top: 425px;
+    
+        
+    background: #FAFAFA;
+    border: 1px solid #676060;
+    box-sizing: border-box;
+    border-radius: 15px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    
+    
+    color: rgba(126, 114, 114, 0.77);
+}
+input[type=password] {
+    position: absolute;
+    
+    width: 290px;
+    height: 45px;
+    left: 96px;
+    top: 490px;
+        
+            
+    background: #FAFAFA;
+    border: 1px solid #676060;
+    box-sizing: border-box;
+    border-radius: 15px;
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+        
+        
+    color: rgba(126, 114, 114, 0.77);
+}
+.box button{
+    position: absolute;
+    width: 201px;
+    height: 62.37px;
+    left: 144px;
+    top: 580px;
+    
+    background: #686DEF;
+    border-radius: 14px;
+    
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 20px;
+    
+    
+    
+    color: #FFFFFF;
+}
+.box button:hover{
+    opacity: 0.8;
+}
+.box p{
+    position: absolute;
+    width: 399px;
+    height: 31.68px;
+    left: 132px;
+    top: 660px;
+        
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+        
+    color: #000000;
+}
+.para p{
+    position: absolute;
+    left: 46.25%;
+    right: 2.71%;
+    top: 84.28%;
+    bottom: 10.25%;
+    
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 56px;
+    
+    color: rgba(0, 0, 0, 0.58);
+}

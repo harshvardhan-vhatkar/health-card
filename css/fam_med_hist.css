@@ -1,0 +1,128 @@
+.bodyy{
+    background-color:#dcf7fc;
+    
+}
+
+.main_panel{
+    display: flex;
+    flex-direction: column;
+}
+
+.h1t{
+    text-align: center;
+    padding-top: 80px;
+    font-size: 60px;
+  
+}
+
+.breakline{
+    width: 320px;
+    background-color: black;
+    height: 2px;
+}
+
+th{
+
+    color: gray;
+    font-weight: 600;
+    padding-right: 190px;
+    padding-top: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
+    padding-bottom: 15px;
+    white-space: pre;
+
+
+    
+}
+
+td{
+   
+    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
+   
+
+}
+
+.tablediv{
+    margin: auto;
+    width: 50%;
+}
+
+
+.smo{
+    font-weight: 500;
+    font-size: 25px;
+ 
+ 
+}
+
+
+
+.ip1{
+   
+    background-color: gray;
+    border: 0px;
+}
+
+
+
+
+  td{ 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.137);
+  
+  }
+
+
+.ta{
+    width: 500px;
+    height: 100px;
+    background-color:#DCF7FC;
+    border: 0px;
+}
+
+
+input[type=radio] {
+height: 20px;
+width: 20px;
+  }
+
+.oth{
+    padding-left: 110px;
+   
+    margin: auto;
+    width: 1500px;
+}
+
+
+#demo-textarea
+{
+  width:1230px;
+  height:70px;
+}
+
+textarea
+{
+    background-color: #dcf7fc;
+    border: 0px;
+  line-height: 4ch;
+  background-image: linear-gradient(transparent, transparent calc(4ch - 1px), #000000 0px);
+  background-size: 100% 4ch;
+}
+
+input[type=submit]{
+    position: relative;
+    bottom: 100px;
+    border-radius: 20px;
+    background-color: #717D99;
+    border:2px solid black;
+    font-size: 35px;
+    font-weight: 600;
+    color: white;
+    left: 1250px;
+    width: 172px;
+    height: 85px;
+}
+
+.btnn:hover{
+    background: #132d6b;
+    
+}
