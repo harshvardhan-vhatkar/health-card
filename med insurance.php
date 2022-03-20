@@ -1,3 +1,7 @@
+<?php
+session_start();
+require "includes/database_connect.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient | Sign Up</title>
-  <link rel="stylesheet" href="../css/med_insurance.css">
+  <link rel="stylesheet" href="css/med_insurance.css">
 
   <link rel="stylesheet" href="css/common.css">
 
@@ -16,76 +20,11 @@
 
   <!--BODY-->
 
-  <div class="left_panel"> 
-    <br>
-   <div class="circle1">
-   </div>
-   <div class="heading1">
-     <h2 class="bold">Patient Name</h2>
-    <h4 class="sbold">Youremail@gmail.com</h4>
-   
-   </div>
+  <?php
+    include "includes/left_panel.php";
+    ?>
+
   
- 
-   <div class="hello">
-   <table class="left_main">
-     <tr >
-       <td >Gender</td>
-     </tr>
-      <tr> <td><div class="details">
-        Male
-        <hr>
-      </div></td>       
-       </tr>
- 
-       <tr>
-       <td>Birthday</td>
-       </tr>
-       <tr> <td><div class="details">
-      24 Jul,2001
-         <hr>
-       </div></td>
-     </tr>
- 
- 
-     <tr>
-       <td >Phone No</td>
-     </tr>
-     <tr> <td><div class="details">
-       9090909090
-          <hr>
-        </div></td>
-      </tr>
- 
-     <tr>
-       <td>Address</td>
-       <tr> <td><div class="details">
-       Mumbai
-            <hr>
-          </div></td>
-        </tr>
-     </tr>
- 
-     <tr>
-       <td>Blood Group</td>
-       <tr> <td><div class="details">
-         B positive
-            <hr>
-          </div></td>
-        </tr>
-     </tr>
- 
-   <tr>
-       <td>Emergency Contact</td>
-       <tr> <td><div class="details">
-         9191919191
-            <hr>
-          </div></td>
-        </tr>
-     </tr>
-     
-   </table>
-   </div>
   <div class="right_panel2" >
 <h2 class="heading5">Medical Insurance Details</h2>
 <hr class="divider_in"></hr>

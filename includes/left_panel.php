@@ -1,10 +1,8 @@
 <?php
 
-require "includes/database_connect.php";
+$uname = $_SESSION['username'];
 
-$username = $_SESSION['username'];
-
-$sql_1 = "SELECT * FROM patient_signup WHERE username = $username";
+$sql_1 = "SELECT * FROM patient_signup WHERE username = '$uname'";
 $result_1 = mysqli_query($conn, $sql_1);
 if (!$result_1) {
     echo "Something went wrong!";
@@ -15,13 +13,15 @@ if (!$user) {
     echo "Something went wrong!";
     return;
 }
+
+$imageURL = 'uploads/'.$user["file_name"];
 ?>
 <div class="left_panel"> <br>
-                    <div class="circle1"></div>
+                    <div > <img src="<?= $imageURL; ?>" class="circle1" /></div>
             <div class="heading1">
                 <h2 class="bold"><?= $user['name'] ?></h2>
                 <br>
-                <h4 class="sbold">Youremail@gmail.com</h4>
+                <h4 class="sbold"><?= $user['email'] ?></h4>
             </div>
             <div class="hello">
                 <table class="left_main">
@@ -31,7 +31,7 @@ if (!$user) {
                     <tr> 
                     <td>
                         <div class="details">
-                    Male
+                        <?= $user['gender'] ?>
                     <hr>
                     </div></td>       
                     </tr>
@@ -40,7 +40,7 @@ if (!$user) {
                     <td>Birthday</td>
                     </tr>
                     <tr> <td><div class="details">
-                    24 Jul,2001
+                    <?= $user['dob'] ?>
                     <hr>
                     </div></td>
                 </tr>
@@ -50,7 +50,7 @@ if (!$user) {
                     <td >Phone No</td>
                 </tr>
                 <tr> <td><div class="details">
-                    9090909090
+                <?= $user['phone'] ?>
                         <hr>
                     </div></td>
                     </tr>
@@ -58,7 +58,7 @@ if (!$user) {
                 <tr>
                     <td>Address</td>
                     <tr> <td><div class="details">
-                    Mumbai
+                    <?= $user['address'] ?>
                         <hr>
                         </div></td>
                     </tr>
@@ -67,7 +67,7 @@ if (!$user) {
                 <tr>
                     <td>Blood Group</td>
                     <tr> <td><div class="details">
-                    B positive
+                    <?= $user['bgrp'] ?>
                         <hr>
                         </div></td>
                     </tr>
@@ -76,14 +76,15 @@ if (!$user) {
                 <tr>
                     <td>Emergency Contact</td>
                     <tr> <td><div class="details">
-                    9191919191
+                    <?= $user['ephone'] ?>
                         <hr>
                         </div></td>
                     </tr>
                 </tr> 
-                <tr>
-                    <a href="patient_form.php">Edit</a>
-                </tr>
+       
                 </table>
             </div>
+            <div class="edit_button">
+                    <a href="patient_form.php" class="edit_text">Edit</a>
+</div>
         </div>
