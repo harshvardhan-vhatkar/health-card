@@ -1,7 +1,25 @@
+<?php
+
+require "includes/database_connect.php";
+
+$username = $_SESSION['username'];
+
+$sql_1 = "SELECT * FROM patient_signup WHERE username = $username";
+$result_1 = mysqli_query($conn, $sql_1);
+if (!$result_1) {
+    echo "Something went wrong!";
+    return;
+}
+$user = mysqli_fetch_assoc($result_1);
+if (!$user) {
+    echo "Something went wrong!";
+    return;
+}
+?>
 <div class="left_panel"> <br>
                     <div class="circle1"></div>
             <div class="heading1">
-                <h2 class="bold">Patient Name</h2>
+                <h2 class="bold"><?= $user['name'] ?></h2>
                 <br>
                 <h4 class="sbold">Youremail@gmail.com</h4>
             </div>
@@ -63,6 +81,9 @@
                         </div></td>
                     </tr>
                 </tr> 
+                <tr>
+                    <a href="patient_form.php">Edit</a>
+                </tr>
                 </table>
             </div>
         </div>
