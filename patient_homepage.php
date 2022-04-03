@@ -49,7 +49,7 @@ require "includes/database_connect.php";
             </a>
             <a href="reports.php">
             <div class="bx1">
-                <img src="img/ic3.png" alt="" class="im1">
+                <img src="img/ic3.png" alt="" class="im1">+
                 <br>
                 <div class="cont1">
                 <b>Medical Report</b>

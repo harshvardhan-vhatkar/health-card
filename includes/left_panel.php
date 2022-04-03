@@ -21,7 +21,7 @@ $imageURL = 'uploads/'.$user["file_name"];
             <div class="heading1">
                 <h2 class="bold"><?= $user['name'] ?></h2>
                 <br>
-                <h4 class="sbold"><?= $user['email'] ?></h4>
+                <h4 class="sbold"><?= $uname?></h4>
             </div>
             <div class="hello">
                 <table class="left_main">

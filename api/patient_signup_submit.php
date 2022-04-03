@@ -23,6 +23,8 @@ if ($row_count != 0) {
 
 $sql = "INSERT INTO patient_signup (email, password, username) VALUES ('$email', '$password', '$username')";
 $result = mysqli_query($conn, $sql);
+$sql1 = "INSERT INTO last_app (user) VALUES ('$username')";
+$result1=mysqli_query($conn,$sql1);
 if (!$result) {
     $response = array("success" => false, "message" => "Something went wrong!");
     echo json_encode($response);

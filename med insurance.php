@@ -29,28 +29,46 @@ require "includes/database_connect.php";
 <h2 class="heading5">Medical Insurance Details</h2>
 <hr class="divider_in"></hr>
    
+<?php 
+$uname=$_SESSION['username'];
+
+$sql_4 = "SELECT * FROM insurance WHERE user = '$uname'";
+
+$result_1 = mysqli_query($conn, $sql_4);
+
+if (!$result_1) {
+    echo "Something went wrong!";
+    return;
+}
+$user = mysqli_fetch_assoc($result_1);
+if (!$user) {
+    echo "Something went wrong!";
+    return;
+}
+?>
    
  <div class="insurance_details">
    <table>
+   <form id="insurance-form" class="form" role="form" method="post" action="api/insurance_submit.php">
      <tr>
        
 <td><h3>Name of Insurance</h3></td>
-<td><input type="text"class="in_in"></td>
+<td><input type="text"class="in_in" name="name_ins" value="<?= $user['name_ins'] ?>"></td>
      </tr>
 <br>
 <tr>
   <td><h3 class="wid">Insurance Company</h3></td>
-<td><input type="text"class="in_in"></td>
+<td><input type="text" class="in_in" name="ins_company" value="<?= $user['ins_company'] ?>" ></td>
 </tr>
 <br>
 <tr>
 <td><h3>Validity of Insurance</h3></td>
-<td><input type="text"class="in_in"></td>
+<td><input type="text"class="in_in" name="validity" value="<?= $user['validity'] ?>"></td>
 <br>
 </tr>
 <tr>
 <td><h3>Insurance ID</h3></td>
-<td><input type="text"class="in_in"></td>
+<td><input type="text"class="in_in" name="ins_id" value="<?= $user['ins_id'] ?>"></td>
 <br>
 </tr>
 <tr>
@@ -61,13 +79,18 @@ require "includes/database_connect.php";
 <br>
  </div>
  <div class="attach">
-   <input type="button" class="attach_text" value="Documents of Max Bupa Health Insurance_SHIVANGI">
+
+ <input type="file"  name="file1" class="attach_text" >
+
+ 
+
+
    
  </div>
 </div>
  
-</div>s
+</div>
 <input type="submit" class="okay" value ="OK">    
-
+</form>
 </body>
 </html>

@@ -1,3 +1,8 @@
+<?php
+session_start();
+require "includes/database_connect.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,10 +22,27 @@
             <h1 class="h1t">Family Medical History</h1>
             <hr class="breakline"/>
         </div>
+        <?php 
+$uname=$_SESSION['username'];
 
+$sql_4 = "SELECT * FROM fam_med_history WHERE user = '$uname'";
+
+$result_1 = mysqli_query($conn, $sql_4);
+
+if (!$result_1) {
+    echo "Something went wrong!";
+    return;
+}
+$user = mysqli_fetch_assoc($result_1);
+if (!$user) {
+    echo "Something went wrong!";
+    return;
+}
+?>
         <div>
             <table class="tablediv">
-                <tr>
+            <form id="hist-form" class="form" role="form" method="post" action="api/hist_submit.php">
+            <tr>
                     <th >
                         Health Conditions
                     </th>
@@ -36,17 +58,17 @@
                         
                     </td>
                     <td style="border-bottom: 0px; padding-top: 30px;">                    
-                        <input type="radio" name="smo" value="YES" >   
+                        <input type="radio" name="smoking" value="YES" <?=$user['smoking']=="YES" ? "checked" : ""?> >   
                     </td>
                     <td style="border-bottom: 0px; padding-top: 30px;">
-                        <input type="radio" name="smo" value="NO"  >
+                        <input type="radio" name="smoking" value="NO"  <?=$user['smoking']=="NO" ? "checked" : ""?>>
                     </td>
-                    <td style="padding-left: 35px; border-bottom: 0px; padding-top: 30px;"><input type="radio" name="smo" value="DONTKNOW" >
+                    <td style="padding-left: 35px; border-bottom: 0px; padding-top: 30px;"><input type="radio" name="smoking" value="DONTKNOW" <?=$user['smoking']=="DONTKNOW" ? "checked" : ""?> >
                     
                     </td>
                     
                     <td style=" border-bottom: 0px; padding-top: 20px;">
-                        <input type="text" class="ip1">
+                        <input type="text" class="ip1" name="relation_smoking" value="">
                     </td>
                 </tr>
                 <tr>
@@ -56,8 +78,10 @@
                     <td></td>
                     <td></td>
                 </tr>
-                <!--bottom text present-->
-                <tr>
+
+
+                
+                 <tr>
                     <td class="smo" style="padding-left: 120px; ">
                         <div>
                         Alcohol <br>
@@ -65,17 +89,18 @@
                     </div>
                     </td>
                     <td>                    
-                        <input type="radio" name="alc" value="YES">   
+                    <input type="radio" name="alcohol" value="YES" <?=$user['alcohol']=="YES" ? "checked" : ""?> >
                     </td>
                     <td>
-                        <input type="radio" name="alc" value="NO"  >
+                    <input type="radio" name="alcohol" value="NO" <?=$user['alcohol']=="NO" ? "checked" : ""?> >
                     </td>
-                    <td style="padding-left: 35px;"><input type="radio" name="alc" value="DONTKNOW" ></td>
+                    <td style="padding-left: 35px"><input type="radio" name="alcohol" value="DONTKNOW" <?=$user['alcohol']=="DONTKNOW" ? "checked" : ""?> >
+</td>
                     <td>
                         <input type="text" class="ip1">
                     </td>
                 </tr>
-                <!--till here-->
+       
                 <tr>
                     <td class="smo" style="padding-left: 120px; ">
                         <div>
@@ -84,12 +109,13 @@
                     </div>
                     </td>
                     <td>                    
-                        <input type="radio" name="dru" value="YES" >   
+                    <input type="radio" name="drugs" value="YES" <?=$user['drugs']=="YES" ? "checked" : ""?> >
                     </td>
                     <td>
-                        <input type="radio" name="dru" value="NO"  >
+                    <input type="radio" name="drugs" value="NO" <?=$user['drugs']=="NO" ? "checked" : ""?> >
                     </td>
-                    <td style="padding-left: 35px;"><input type="radio" name="dru" value="DONTKNOW" ></td>
+                    <td style="padding-left: 35px"><input type="radio" name="drugs" value="DONTKNOW" <?=$user['drugs']=="DONTKNOW" ? "checked" : ""?> >
+</td>
                     <td>
                         <input type="text" class="ip1">
                     </td>
@@ -101,12 +127,12 @@
                         
                     </td>
                     <td style="border-bottom: 0px; padding-top: 30px;">                    
-                        <input type="radio" name="hbp" value="YES" >   
+                    <input type="radio" name="bp" value="YES" <?=$user['bp']=="YES" ? "checked" : ""?> > 
                     </td>
                     <td style="border-bottom: 0px; padding-top: 30px;">
-                        <input type="radio" name="hbp" value="NO"  >
+                    <input type="radio" name="bp" value="NO" <?=$user['bp']=="NO" ? "checked" : ""?> >
                     </td>
-                    <td style="padding-left: 35px; border-bottom: 0px; padding-top: 30px;"><input type="radio" name="hbp" value="DONTKNOW" >
+                    <td style="padding-left: 35px; border-bottom: 0px; padding-top: 30px;"><input type="radio" name="bp" value="DONTKNOW" <?=$user['bp']=="DONTKNOW" ? "checked" : ""?> >
                     
                     </td>
                     
@@ -129,12 +155,13 @@
                         
                     </td>
                     <td style="border-bottom: 0px; padding-top: 30px;">                    
-                        <input type="radio" name="aut" value="YES" >   
+                    <input type="radio" name="autism" value="YES" <?=$user['autism']=="YES" ? "checked" : ""?> >  
                     </td>
                     <td style="border-bottom: 0px; padding-top: 30px;">
-                        <input type="radio" name="aut" value="NO"  >
+                    <input type="radio" name="autism" value="NO" <?=$user['autism']=="NO" ? "checked" : ""?> >
                     </td>
-                    <td style="padding-left: 35px; border-bottom: 0px; padding-top: 30px;"><input type="radio" name="aut" value="DONTKNOW" >
+                    <td style="padding-left: 35px; border-bottom: 0px; padding-top: 30px;"><input type="radio" name="autism" value="DONTKNOW" <?=$user['autism']=="DONTKNOW" ? "checked" : ""?> >
+                    
                     
                     </td>
                     
@@ -150,7 +177,7 @@
                     <td></td>
                 </tr>
 
-                 <!--bottom text present-->
+
                  <tr>
                     <td class="smo" style="padding-left: 120px; ">
                         <div>
@@ -159,18 +186,19 @@
                     </div>
                     </td>
                     <td>                    
-                        <input type="radio" name="bir" value="YES">   
+                    <input type="radio" name="birthdefects" value="YES" <?=$user['birthdefects']=="YES" ? "checked" : ""?> >  
                     </td>
                     <td>
-                        <input type="radio" name="bir" value="NO"  >
+                    <input type="radio" name="birthdefects" value="NO" <?=$user['birthdefects']=="NO" ? "checked" : ""?> >
                     </td>
-                    <td style="padding-left: 35px;"><input type="radio" name="bir" value="DONTKNOW" ></td>
+                    <td style="padding-left: 35px;"><input type="radio" name="birthdefects" value="DONTKNOW" <?=$user['birthdefects']=="DONTKNOW" ? "checked" : ""?> >
+                    
                     <td>
                         <input type="text" class="ip1">
                     </td>
                 </tr>
                 
-                <!--bottom text present-->
+
                 <tr>
                     <td class="smo" style="padding-left: 120px; ">
                         <div>
@@ -179,12 +207,13 @@
                     </div>
                     </td>
                     <td>                    
-                        <input type="radio" name="blo" value="YES">   
+                    <input type="radio" name="bloodclots" value="YES" <?=$user['bloodclots']=="YES" ? "checked" : ""?> >  
                     </td>
                     <td>
-                        <input type="radio" name="blo" value="NO"  >
+                    <input type="radio" name="bloodclots" value="NO" <?=$user['bloodclots']=="NO" ? "checked" : ""?> >
                     </td>
-                    <td style="padding-left: 35px;"><input type="radio" name="blo" value="DONTKNOW" ></td>
+                    <td style="padding-left: 35px;"><input type="radio" name="bloodclots" value="DONTKNOW" <?=$user['bloodclots']=="DONTKNOW" ? "checked" : ""?> >
+                    
                     <td>
                         <input type="text" class="ip1">
                     </td>
@@ -197,12 +226,12 @@
                         
                     </td>
                     <td style="border-bottom: 0px; padding-top: 30px;">                    
-                        <input type="radio" name="dia" value="YES" >   
+                    <input type="radio" name="diabetes" value="YES" <?=$user['diabetes']=="YES" ? "checked" : ""?> >  
                     </td>
                     <td style="border-bottom: 0px; padding-top: 30px;">
-                        <input type="radio" name="dia" value="NO"  >
+                    <input type="radio" name="diabetes" value="NO" <?=$user['diabetes']=="NO" ? "checked" : ""?> >
                     </td>
-                    <td style="padding-left: 35px; border-bottom: 0px; padding-top: 30px;"><input type="radio" name="dia" value="DONTKNOW" >
+                    <td style="padding-left: 35px; border-bottom: 0px; padding-top: 30px;"><input type="radio" name="diabetes" value="DONTKNOW" <?=$user['bloodclots']=="DONTKNOW" ? "checked" : ""?> >
                     
                     </td>
                     
@@ -216,7 +245,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                </tr>
+                </tr> 
 
             </table>
 
@@ -239,6 +268,7 @@
 
             <input type="submit" value="OK" class="btnn">
         </div>
+</form>
 
         
 

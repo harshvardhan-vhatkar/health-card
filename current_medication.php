@@ -62,7 +62,7 @@ require "includes/database_connect.php";
 <h4 class="aller">Any Known Allergies:</h4>
 <table class="allertypes">
   <tr class="pad">
-    <td  class="pad"><input type="checkbox" name="first">Aspirin</td>
+    <td  class="pad"><input type="checkbox" name="first" >Aspirin</td>
     <td class="pad"><input type="checkbox" name="first">Latex</td>
     <td class="pad"><input type="checkbox" name="first">Fruits</td>
   </tr>
