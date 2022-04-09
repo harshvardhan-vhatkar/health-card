@@ -46,7 +46,7 @@ if (!$user) {
     return;
 }
 ?>
-   
+
  <div class="insurance_details">
    <table>
    <form id="insurance-form" class="form" role="form" method="post" action="api/insurance_submit.php">
@@ -72,25 +72,56 @@ if (!$user) {
 <br>
 </tr>
 <tr>
+
+
+
+
+
 <td><h3>Attached Copy</h3></td>
 </tr>
 </table>
 
 <br>
  </div>
- <div class="attach">
-
- <input type="file"  name="file1" class="attach_text" >
-
  
-
-
-   
- </div>
 </div>
  
 </div>
 <input type="submit" class="okay" value ="OK">    
+</form>
+
+
+<form id="insurance-form-doc" class="form" role="form" method="post" action="uploads1.php" enctype="multipart/form-data">
+<div class="attach">
+
+ <input type="file"  name="file" class="attach_text" >
+ <input type="submit" class="okay" name="submit" value ="UPLOAD"> 
+
+ </div>
+ <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>File Name</th>
+                        <th>View</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                $sql = "SELECT ins_copy FROM insurance WHERE user = '$uname'";
+                $result = mysqli_query($conn, $sql);
+                $i = 1;
+                while($row = mysqli_fetch_array($result)) { ?>
+                <tr>
+                    <td><?php echo $i++; ?></td>
+                    <td><?php echo $row['ins_copy']; ?></td>
+                    <td><a href="uploads/<?php echo $row['ins_copy']; ?>" target="_blank">View</a></td>
+                    <td><a href="uploads/<?php echo $row['ins_copy']; ?>" download>Download</td>
+                </tr>
+                <?php } ?>
+                </tbody>
+            </table>
 </form>
 </body>
 </html>

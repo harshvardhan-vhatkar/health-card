@@ -1,48 +1,45 @@
 <?php
-session_start();
-require "includes/database_connect.php";
+require "../includes/database_connect.php";
+$username = $_GET["username"];
+
+$sql_1 = "SELECT * FROM patient_signup WHERE username = '$username'";
+$result_1 = mysqli_query($conn, $sql_1);
+if (!$result_1) {
+    echo "Something went wrong!";
+    return;
+}
+
+
+$user = mysqli_fetch_assoc($result_1);
+if (!$user) {
+    echo "Something went wrong!";
+    return;
+}
+
+
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Records</title>
-    <link rel="stylesheet" href="css/records.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo $user['name']?> | Records</title>
+    <link rel="stylesheet" href="../css/records.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/common.css">
-    <link href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" rel="stylesheet" />
 </head>
+
 <body id="bodyy">
 
 
-    <div class="header hed">
+<div class="header hed">
         <nav class="navbar navbar-expand-md navbar-light">
             <h1 class="h11"> Records</h1>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-navbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
-            <!-- <div class="collapse navbar-collapse justify-content-end" id="my-navbar">
-                <ul class="navbar-nav">
-
-                    <li class="nav-item">
-                    <select name="" id="">
-                        <option value="YEAR">YEAR</option>
-                    </select>
-                    </li>
-                    <div class="nav-vl"></div>
-                    <li class="nav-item">
-                    <select name="" id="">
-                        <option value="MONTH">MONTH</option>
-                    </select>
-                    </li>
-    
-
-                </ul>
-            </div> -->
         </nav>
     </div>
 <br>
@@ -61,8 +58,7 @@ require "includes/database_connect.php";
                     <div class="col-1">Date of Visit</div>
                 </div>
                 <?php 
-                $uname=$_SESSION['username'];
-                $sql_4 = "SELECT * FROM last_app WHERE user = '$uname'";
+                $sql_4 = "SELECT * FROM last_app WHERE user = '$username'";
                 $result_1 = mysqli_query($conn, $sql_4);
                 $user = mysqli_fetch_assoc($result_1);
                 ?>
@@ -131,7 +127,7 @@ require "includes/database_connect.php";
 
                 </div>
                 <?php 
-                $sql_5 = "SELECT * FROM fam_med_history WHERE user = '$uname'";
+                $sql_5 = "SELECT * FROM fam_med_history WHERE user = '$username'";
                 $result_2= mysqli_query($conn, $sql_5);
                 $user1 = mysqli_fetch_assoc($result_2);
                 ?>
@@ -189,7 +185,7 @@ require "includes/database_connect.php";
 
                 </div>
                 <?php 
-                $sql_10 = "SELECT * FROM insurance WHERE user = '$uname'";
+                $sql_10 = "SELECT * FROM insurance WHERE user = '$username'";
                 $result_10= mysqli_query($conn, $sql_10);
                 $user2 = mysqli_fetch_assoc($result_10);
                 ?>
@@ -199,7 +195,7 @@ require "includes/database_connect.php";
                     <div class="col-2"><?php echo $user2['validity']; ?></div>
                     <div class="col-2"><?php echo $user2['ins_id']; ?></div>
 
-                    <div class="col-2"><a href="uploads/<?php echo $user2['ins_copy']; ?>" target="_blank">View</a></div>
+                    <div class="col-2"><a href="../uploads/<?php echo $user2['ins_copy']; ?>" target="_blank">View</a></div>
 
                    
                 </div>
@@ -210,9 +206,7 @@ require "includes/database_connect.php";
                 <br>
 
     </div>
-    
 
-
-    
 </body>
+
 </html>

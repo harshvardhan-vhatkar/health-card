@@ -231,7 +231,7 @@ if (!$user) {
                     <td style="border-bottom: 0px; padding-top: 30px;">
                     <input type="radio" name="diabetes" value="NO" <?=$user['diabetes']=="NO" ? "checked" : ""?> >
                     </td>
-                    <td style="padding-left: 35px; border-bottom: 0px; padding-top: 30px;"><input type="radio" name="diabetes" value="DONTKNOW" <?=$user['bloodclots']=="DONTKNOW" ? "checked" : ""?> >
+                    <td style="padding-left: 35px; border-bottom: 0px; padding-top: 30px;"><input type="radio" name="diabetes" value="DONTKNOW" <?=$user['diabetes']=="DONTKNOW" ? "checked" : ""?> >
                     
                     </td>
                     

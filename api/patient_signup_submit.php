@@ -25,6 +25,14 @@ $sql = "INSERT INTO patient_signup (email, password, username) VALUES ('$email',
 $result = mysqli_query($conn, $sql);
 $sql1 = "INSERT INTO last_app (user) VALUES ('$username')";
 $result1=mysqli_query($conn,$sql1);
+$sql2 = "INSERT INTO fam_med_history (user) VALUES ('$username')";
+$result2=mysqli_query($conn,$sql2);
+$sql3 = "INSERT INTO insurance (user) VALUES ('$username')";
+$result3=mysqli_query($conn,$sql3);
+$sql4 = "INSERT INTO medication (user) VALUES ('$username')";
+$result4=mysqli_query($conn,$sql4);
+$sql5 = "INSERT INTO reports (user) VALUES ('$username')";
+$result5=mysqli_query($conn,$sql5);
 if (!$result) {
     $response = array("success" => false, "message" => "Something went wrong!");
     echo json_encode($response);

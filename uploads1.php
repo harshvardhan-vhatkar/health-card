@@ -20,10 +20,10 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
                 // Upload file to server
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
                 // Insert image file name into database
-                $insert = $conn->query("UPDATE patient_signup SET file_name='".$fileName."' WHERE username='$username'");
+                $insert = $conn->query("UPDATE insurance SET ins_copy='".$fileName."' WHERE user='$username'");
                 if($insert){
                     $statusMsg = "The file <b>".$fileName. "</b> has been uploaded successfully.";
-                    header("location:patient_homepage.php");
+                    header("location:med insurance.php");
                 }else{
                     $statusMsg = "File upload failed, please try again." ;
                 } 
