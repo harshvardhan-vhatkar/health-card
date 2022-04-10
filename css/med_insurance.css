@@ -117,6 +117,10 @@ font-size: 18px;
 
 
  }
+.ss{
+margin-left: -150px;
+
+    }
  .okay
 {
     background-color: gray;
@@ -160,4 +164,17 @@ border-radius: 30px;
 .wid
 {
     width:200px;
+}
+.ins_up
+{
+    margin-left: 650px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
+    margin-top: -70px;
+    font-weight: bold;
+}
+.upload_butt
+{
+    margin-top: 100px;
+    margin-left: -410px;
 }

@@ -93,20 +93,20 @@ require "includes/database_connect.php";
                     <div class="col-auto">Dosage and Frequency</div>
                     <div class="col-1">Date when Assigned</div>
                     <div class="col-auto">Doctor who prescribed</div>
-                    <div class="col-1">Medication Assigned</div>
                     <div class="col-auto">Reason Prescribed For</div>
-                    <div class="col-1">Any Known Allergies</div>
               
                 </div>
-
+                <?php 
+                $sql_01 = "SELECT * FROM medication WHERE user = '$uname'";
+                $result_01 = mysqli_query($conn, $sql_01);
+                $user01 = mysqli_fetch_assoc($result_01);
+                ?>
                 <div class=" tr2 row justify-content-around align-items-center">
-                    <div class="col-1">DOLO650</div>
-                    <div class="col-1">Before Lunch & Dinner</div>
-                    <div class="col-1">31/12/2021</div>
-                    <div class="col-1">Dr.Singh</div>
-                    <div class="col-1">Diphenhydramine(Benadryl)</div>
-                    <div class="col-1">Common Cold</div>
-                    <div class="col-1">Peanuts</div>
+                    <div class="col-1"><?php echo $user01['medication']; ?></div>
+                    <div class="col-1"><?php echo $user01['dosage_freq']; ?></div>
+                    <div class="col-1"><?php echo $user01['date']; ?></div>
+                    <div class="col-1"><?php echo $user01['doctor']; ?></div>
+                    <div class="col-1"><?php echo $user01['reason']; ?></div>
             
                 </div>
                 <a class="ic1" href=""><i class="fas fa-pencil-alt"></i>

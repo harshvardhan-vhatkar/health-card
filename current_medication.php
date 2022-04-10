@@ -42,16 +42,33 @@ require "includes/database_connect.php";
       <td class="r">Reason Prescribed for</td>
      
       </tr>  
+      <?php 
+$uname=$_SESSION['username'];
 
+$sql_4 = "SELECT * FROM medication WHERE user = '$uname'";
+
+$result_1 = mysqli_query($conn, $sql_4);
+
+if (!$result_1) {
+    echo "Something went wrong!";
+    return;
+}
+$user = mysqli_fetch_assoc($result_1);
+if (!$user) {
+    echo "Something went wrong!";
+    return;
+}
+?>
 
      
+<form id="current-medication-form" class="form" role="form" method="post" action="api/current_medication_submit.php">
 
 <tr class="r2">
-      <td ><input type="text" class="med_details" value="Enter Medicine Name"></td>
-      <td ><input type="text" class="med_details" value="Enter dosage and frequency"></td>
-      <td ><input type="date" class="med_details1" value=""></td>
-      <td ><input type="text" class="med_details" value="Name of Doctor"></td>
-      <td ><input type="text"  class="med_details" value="Mention Reason"></td>
+      <td ><input type="text" class="med_details" name="medication"  value="<?= $user['medication'] ?>"></td>
+      <td ><input type="text" class="med_details" name="dosage_freq"  value="<?= $user['dosage_freq'] ?>"></td>
+      <td ><input type="text" class="med_details"name="date"  value="<?= $user['date'] ?>"></td>
+      <td ><input type="text" class="med_details" name="doctor"  value="<?= $user['doctor'] ?>"></td>
+      <td ><input type="text"  class="med_details" name="reason"  value="<?= $user['reason'] ?>"></td>
 </tr>
 
 
@@ -108,7 +125,7 @@ require "includes/database_connect.php";
   </tr>
 </table>
 </div>
-<input type="submit" class="okay" value ="OK">
+<input type="submit" class="okay" value ="OK"></form>
 </div>
 </div>
 </div>

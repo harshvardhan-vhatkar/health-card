@@ -87,25 +87,55 @@ if (!$user) {
 </div>
  
 </div>
+<?php 
+$uname=$_SESSION['username'];
+
+$sql_4 = "SELECT * FROM insurance WHERE user = '$uname'";
+
+$result_1 = mysqli_query($conn, $sql_4);
+
+if (!$result_1) {
+    echo "Something went wrong!";
+    return;
+}
+$user = mysqli_fetch_assoc($result_1);
+if (!$user) {
+    echo "Something went wrong!";
+    return;
+}
+?>
+
 <input type="submit" class="okay" value ="OK">    
 </form>
 
 
 <form id="insurance-form-doc" class="form" role="form" method="post" action="uploads1.php" enctype="multipart/form-data">
+<?php
+                //Check if user is loging or not
+                if (!isset($user["ins_copy"])) {
+                ?>   <div class="attach">
+
+ 
+                </div> <div class="ins_up">  
+          <div class="ss"><input type="file"  name="file" class="attach_text" >
+ <div class="upload_butt">
+ <input type="submit" class="okay" name="submit" value ="UPLOAD"></div> </div>
+                         <?php
+                } else { ?>
+               
+               </form>
 <div class="attach">
 
- <input type="file"  name="file" class="attach_text" >
- <input type="submit" class="okay" name="submit" value ="UPLOAD"> 
+ 
+</div>
 
  </div>
+ <div class="ins_up">
  <table class="table table-striped table-hover">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>File Name</th>
-                        <th>View</th>
-                        <th>Download</th>
-                    </tr>
+              
+                    
+</div>
                 </thead>
                 <tbody>
                 <?php
@@ -114,7 +144,7 @@ if (!$user) {
                 $i = 1;
                 while($row = mysqli_fetch_array($result)) { ?>
                 <tr>
-                    <td><?php echo $i++; ?></td>
+             
                     <td><?php echo $row['ins_copy']; ?></td>
                     <td><a href="uploads/<?php echo $row['ins_copy']; ?>" target="_blank">View</a></td>
                     <td><a href="uploads/<?php echo $row['ins_copy']; ?>" download>Download</td>
@@ -122,6 +152,8 @@ if (!$user) {
                 <?php } ?>
                 </tbody>
             </table>
-</form>
+            <?php
+                } ?>
+
 </body>
 </html>

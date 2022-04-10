@@ -19,7 +19,7 @@ if (!$result) {
 
 
 
-$sql = "UPDATE insurance SET name_ins = '$name_ins', ins_company='$ins_company', validity='$validity', ins_id='$ins_id'";
+$sql = "UPDATE insurance SET name_ins = '$name_ins', ins_company='$ins_company', validity='$validity', ins_id='$ins_id' where user='$user'";
 $result = mysqli_query($conn, $sql);
 if (!$result) {
     $response = array("success" => false, "message" => "Something went wrong!");

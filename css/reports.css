@@ -6,27 +6,26 @@
 {
     background-color: white;
     width:300px;
-    height:697px;
+    height:850px;
     margin-top: 30px;
     margin-left: 30px;
     border-radius: 20px;
    
 }
-.main
-{
-    background-color: #EEF1E6;
 
+
+.m_panel{
+    display: flex;
+    flex-direction: row;
 }
 .circle1{
     height: 150px;   
-    margin-left: 70px;
-    width: 150px;
-    background-color: #555555;
-    border-radius: 150%;
-   margin-top: 10px;
-   position: relative;
-   padding-top: 10px;
+    margin-left: 70px;width: 150px;border-radius: 50%;
+    margin-top: 10px;
+    position: relative;
+    padding-top: 10px;
     }
+
   .heading1
   {
     margin-left: 90px;
@@ -38,7 +37,9 @@
       font-weight: bold;
       font-size: 30px;
       width: 300px;  
-      margin-left: -30px;
+      margin-left: -50px;
+      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
 
   }
   .sbold
@@ -46,8 +47,10 @@
       font-weight: normal;
       font-size: 20px;
       margin-left: -35px;
-      margin-top: -30px;
+      margin-top: -20px;
       color: gray;
+      font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
   }
 .left_main
 {
@@ -60,6 +63,25 @@
     flex-direction: column;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 font-size: 18px;
+}
+.edit_button
+{
+    background-color: gray;
+    width:100px;
+    height:30px;
+    border-radius: 30px;
+    margin-top: 170px;
+    margin-left: 85px;
+    text-align: center;
+    font-size:18px;
+    font-weight: bold;
+}
+.edit_text
+{
+    color: white;
+    margin-top: 40px;
+    padding-top: 50px;
+    border-top: 50px;
 }
 .details
  {
@@ -140,7 +162,7 @@ border-radius: 50px;
      margin-top:70px;
      margin-left: 450px;
      width:300px;
-     font-size: 20px;
+     font-size: 26px;
  }
  .docs
  {
@@ -215,11 +237,52 @@ border-radius: 50px;
         border-color: black;
         height: 50px;
         width: 100px;
-        margin-left: 130px;
+        margin-left: 720px;
         margin-top:100px;
         margin-bottom:10px;
         font-size: 20px;
         font-weight: bold;
         
     }
+    .rep_up
+    {
+        margin-left: 700px;
+        color:black;
+    }
+    .submit_rep
+    {
+        background-color: burlywood;
+        height:40px;
+        width:100px;
+        border-radius: 25px;
+        margin-left: 70px;
+        margin-top: 30px;
+    }
+    .choose_rep
+    {
+        background-color: gray;
+        height:40px;
+        width:200px;
+        border-radius: 25px;
+        margin-left: 30px;
+        margin-top: 30px;
+        text-align: center;
 
+    }
+    .attac_docs
+    {
+        background-color:white;
+        height: 300px;
+        width: 750px;
+        border-radius: 60px;
+        padding-top: 50px;
+        padding-left: 30px;
+        font-size: 20px;
+       
+    }
+
+    .text_docs
+    {
+        margin-top: 200px;
+        padding: 100px;
+    }
