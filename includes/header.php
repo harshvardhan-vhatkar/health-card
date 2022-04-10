@@ -12,23 +12,23 @@
                 if (!isset($_SESSION["username"])) {
                 ?>
           <li class="nav-item p-2">
-            <button type="button" class="navbtn btn btn-secondary">About Us</button>
+            <button type="button" class="navbtn btn btn-secondary" onclick="window.location.href='aboutus/index.html'">About Us</button>
             
           </li>
           
           <li class="nav-item p-2">
-              <button type="button" class="navbtn btn btn-secondary">Contact Us</button>
+              <button type="button" class="navbtn btn btn-secondary" onclick="window.location.href='contact2/index.php'">Contact Us</button>
           </li>
                 <?php
                 } else {
                 ?>
                               <li class="nav-item p-2">
-            <button type="button" class="navbtn btn btn-secondary">About Us</button>
+            <button type="button" class="navbtn btn btn-secondary" onclick="window.location.href='aboutus/index.html'">About Us</button>
             
           </li>
           
           <li class="nav-item p-2">
-              <button type="button" class="navbtn btn btn-secondary">Contact Us</button>
+              <button type="button" class="navbtn btn btn-secondary" onclick="window.location.href='contact2/index.php'">Contact Us</button>
           </li>
                     <div class="nav-vl"></div>
                     <li class="nav-item">

@@ -5,14 +5,14 @@ $username = $_GET["username"];
 $sql_1 = "SELECT * FROM patient_signup WHERE username = '$username'";
 $result_1 = mysqli_query($conn, $sql_1);
 if (!$result_1) {
-    echo "Something went wrong!";
+    echo "This patient is not registered yet!";
     return;
 }
 
 
 $user = mysqli_fetch_assoc($result_1);
 if (!$user) {
-    echo "Something went wrong!";
+    echo "This patient is not registered yet!";
     return;
 }
 

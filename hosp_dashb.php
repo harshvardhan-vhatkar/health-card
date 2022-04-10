@@ -18,11 +18,9 @@ require "includes/database_connect.php";
 </head>
 <body class="bodyy">
   <!--NAVBAR/HEADER-->
-  <!--NAVBAR/HEADER-->
   <div class="header sticky-top">
     <nav class="navbar navbar-expand-md ">
-      <a class="navbar-brand" href="index.php"><img src="img/logo.png" class="img1" alt="">
-      </a>
+      <a class="navbar-brand" href="index.php"><img src="img/logo.png" class="img1" alt=""></a>
 
       <div class="navbar-collapse justify-content-end" >
         <ul class="navbar-nav">
@@ -32,23 +30,23 @@ require "includes/database_connect.php";
                 if (!isset($_SESSION["username"])) {
                 ?>
           <li class="nav-item p-2">
-            <button type="button" class="navbtn btn btn-secondary">About Us</button>
+            <button type="button" class="navbtn btn btn-secondary" onclick="window.location.href='aboutus/index.html'">About Us</button>
             
           </li>
           
           <li class="nav-item p-2">
-              <button type="button" class="navbtn btn btn-secondary">Contact Us</button>
+              <button type="button" class="navbtn btn btn-secondary" onclick="window.location.href='../contact2/index.php'">Contact Us</button>
           </li>
                 <?php
                 } else {
                 ?>
                               <li class="nav-item p-2">
-            <button type="button" class="navbtn btn btn-secondary">About Us</button>
+            <button type="button" class="navbtn btn btn-secondary" onclick="window.location.href='aboutus/index.html'">About Us</button>
             
           </li>
           
           <li class="nav-item p-2">
-              <button type="button" class="navbtn btn btn-secondary">Contact Us</button>
+              <button type="button" class="navbtn btn btn-secondary" onclick="window.location.href='contact2/index.php'">Contact Us</button>
           </li>
                     <div class="nav-vl"></div>
                     <li class="nav-item">
